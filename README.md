@@ -29,8 +29,8 @@ The template structure is as follows:
 
 ## Building locally using npm
 ``` bash
-git clone https://gitlab.igem.org/2023/tsinghua-tfl.git
-cd tsinghua-tfl
+git clone https://github.com/hiShujie/project-wiki.git
+cd project-wiki
 npm install
 npm run dev
 ```
