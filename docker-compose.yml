@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  patras_medicine:
+    build: .
+    container_name: tsinghua-tfl
+    volumes:
+     - .:/tsinghua-tfl
+    ports:
+      - 8000:8000
+  

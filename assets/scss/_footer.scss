@@ -1,0 +1,96 @@
+.footer {
+  background-color: $dark !important;
+  color: $white;
+  font-family: 'text', sans-serif;
+  padding-bottom: 50px;
+  padding-top: 30px;
+  p {
+    font-size: 10px;
+    line-height: 17px;
+  }
+
+  .footer-details {
+    position: relative;
+    .logo-footer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 40px;
+      filter: grayscale(0.5);
+      p {
+        padding-left: 20px;
+        padding-bottom: 0;
+      }
+    }
+    .sponsors {
+      > div {
+        text-align: center;
+        margin-bottom: 10px;
+        @include media-breakpoint-up(lg) {
+          position: absolute;
+          right: 0;
+          bottom: 30px;
+        }
+        a {
+          display: inline-block;
+          padding: 10px;
+          img {
+            transition: all 250ms ease;
+            height: 22px;
+            filter: grayscale(0.8);
+
+            &.tsinghua_university {
+              height: 30px;
+            }
+            &.neb {
+              height: 40px;
+            }
+            &.protoga{
+              height:30px;
+            }
+          }
+          &:hover img {
+            filter: grayscale(0);
+          }
+        }
+      }
+    }
+  }
+
+  .creds {
+    margin-top: 30px;
+    .copy {
+      .small {
+        text-align: center !important;
+        font-size: 12px;
+        @include media-breakpoint-up(lg) {
+          text-align: left !important;
+        }
+
+        a {
+          border-bottom: 1px solid #e5e7eb;
+          transition: all 0.3s ease;
+          &:hover {
+            color: $main-light;
+            border-bottom: 1px solid $main-light;
+          }
+        }
+      }
+    }
+    .socials {
+      position: relative;
+      > div {
+        text-align: center;
+        margin-bottom: 20px;
+        @include media-breakpoint-up(lg) {
+          position: absolute;
+          right: 10px;
+          bottom: 0px;
+        }
+        a {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}

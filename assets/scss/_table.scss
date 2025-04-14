@@ -1,0 +1,21 @@
+thead tr th {
+    font-family: 'Header', sans-serif;
+    font-size: 25px;
+    background: $dark !important;
+    color: $secondary;
+} 
+
+tbody tr th, td {
+    font-family: 'text', sans-serif;
+    background: $dark !important;
+    color: $white !important;
+    border-color: $white;
+    &:hover {
+        color: $white !important;
+    }
+}
+
+table, th, td {
+    border: 1px solid rgb(129, 35, 35);
+    border-collapse: collapse;
+}

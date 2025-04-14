@@ -1,0 +1,211 @@
+.members {
+  .row {
+    justify-content: center;
+  }
+  figure {
+    position: relative;
+    overflow: hidden;
+    margin: 15px 1%;
+    max-height: 450px;
+    // height: 360px;
+    background: #3085a3;
+    text-align: center;
+    //cursor: pointer;
+
+    img {
+      position: relative;
+      display: block;
+      min-height: 100%;
+      max-width: 100%;
+      opacity: 0.8;
+    }
+
+    figcaption {
+      padding: 2em;
+      color: #fff;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+
+      &:before {
+        pointer-events: none;
+      }
+      &:after {
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+.members {
+  figure {
+    figcaption,
+    figcaption > a {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      > a {
+        z-index: 1000;
+        text-indent: 200%;
+        white-space: nowrap;
+        font-size: 0;
+        opacity: 0;
+      }
+    }
+
+    .name {
+      font-family: 'Header', cursive;
+      font-size: 20px;
+      line-height: 25px;
+    }
+    .role {
+      font-family:'text', sans-serif;
+      font-size: 14px;
+      line-height: 16px;
+    }
+
+    p {
+      font-family: 'text', sans-serif;
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+}
+
+figure {
+  &.effect {
+    background: $main-light;
+
+    img {
+      opacity: 0.95;
+      transition: opacity 0.35s, transform 0.35s;
+      transform: scale3d(1.05,1.05,1);
+    }
+
+    figcaption {
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255,255,255,0.5);
+        content: '';
+        transition: transform 0.6s;
+        transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,-100%,0);
+      }
+    }
+
+    p {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin: 2em;
+      padding: 0 1em;
+      max-width: 100%;
+      border-right: 4px solid #fff;
+      text-align: right;
+      opacity: 0;
+      transition: all 0.35s ease;
+      z-index: 99999;
+      a {
+        img {
+          opacity: 1 !important;
+        }
+        display: inline-block;
+        margin-bottom: 5px;
+        border-radius: 4px;
+        background-color: $main;
+        padding: 6px;
+        transition: all 0.25s ease;
+        &:hover {
+          transform: translateY(-3px);
+        }
+      }
+    }
+
+    .name {
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.65s ease;
+    }
+    .role {
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.35s ease;
+      position: relative;
+
+      display: inline-block;
+      background-color: $main-light;
+      font-size: 1vh;
+      padding: 2px 8px 2px 25px;
+      border-radius: 4px;
+      color: $white;
+      margin: 0 5px;
+
+      &:before {
+        content: '.';
+        position: absolute;
+        left: 5px;
+        top: -25px;
+        font-size: 90px;
+      }
+
+      &.team-leader:before {
+        color: $team-leader;
+      }
+      &.web-developer:before {
+        color: $web-developer;
+      }
+      &.wet-lab:before {
+        color: $wet-lab;
+      }
+      &.dry-lab:before {
+        color: $dry-lab;
+      }
+      &.graphic-design:before {
+        color: $graphic-design;
+      }
+      &.fundraiser:before {
+        color: $fundraiser;
+      }
+      &.lab-instructor:before {
+        color: $lab-instructor;
+      }
+      &.human-practices:before {
+        color: $human-practices;
+      }
+      &.public-relations:before {
+        color: $public-relations;
+      }
+    }
+
+    &:hover img {
+      opacity: 0.6;
+      transform: scale3d(1,1,1);
+    }
+
+    &:hover .name {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    &:hover .role {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    &:hover p {
+      opacity: 1 !important;
+      transition-delay: 0.1s;
+    }
+    &:hover .linkedin {
+      opacity: 1 !important;
+      transition-delay: 0.1s;
+    }
+  }
+}
+
+figure.effect:hover figcaption::before {
+  transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,100%,0);
+}

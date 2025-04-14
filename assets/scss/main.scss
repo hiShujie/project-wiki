@@ -1,0 +1,471 @@
+$hamburger-layer-color: #289538e0 !default;
+
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/simplelightbox/src/simple-lightbox.scss";
+@import "node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "reset";
+@import "variables";
+@import "menu";
+@import "footer";
+@import "home";
+@import "members";
+@import "scrollspy";
+@import "scrolltotop";
+@import "accordion";
+@import "fonts";
+@import "highlighter";
+@import "timeline";
+@import "table";
+
+body,
+html {
+  height: 100%;
+  margin:auto;
+}
+
+
+body {
+  font-family: 'text', sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  background-color: #efefef;
+  cursor: url('../../toony-black/mouse.png'), auto;
+}
+
+section {
+  padding: 80px 0 60px 0;
+}
+
+sup {
+  vertical-align: top;
+  font-size: 0.8em;
+}
+
+sub {
+  vertical-align: bottom;
+  font-size: 0.6em;
+}
+
+.link-exchange{
+  color:$main-light;
+  size:12px;
+  text-align: center;
+  .title{
+    size:14px;
+    font-weight: 600;
+  }
+}
+
+
+
+
+
+
+
+  .intro {
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: center;
+
+    @include media-breakpoint-up(sm) {
+      max-width: 80%;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    span {
+      font-weight: bold !important;
+    }
+
+    img {
+      display: block;
+      text-align: middle;
+      margin-left: 0;
+    }
+  }
+
+  p {
+    text-align: justify;
+    font-size: 20px;
+    font-style: 'text';
+    line-height: 30px;
+    padding-bottom: 20px;
+ 
+
+    &.smaller {
+      font-size: 16px;
+      line-height: 26px;
+    }
+
+    &.line {
+      padding-top: 20px;
+      border-top: 1px solid $main-light;
+    }
+  }
+
+
+  .bg {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+
+    &.partnership {
+      height: 70vh;
+
+      .head-title {
+        color: $main-light;
+      }
+    }
+    
+    &.sustainable {
+      height: 70vh;
+
+      .head-title {
+        color: $main-light;
+      }
+    }
+
+    &.team {
+      height: 70vh;
+    }
+
+    .head-title {
+      position: absolute;
+      left: 50%;
+      top: 45%;
+      transform: translateY(-50%);
+      transform: translateX(-50%);
+      text-shadow: $white 1px 1px;
+
+      font-family: 'Header', cursive;
+      color: white;
+      font-size: 40px;
+
+      @media (min-width: 768px) and (max-width: 1180px) {
+        left: 80px;
+        font-size: 50px;
+        transform: translateX(0);
+      }
+
+      @media (min-width: 1180px) {
+        left: 80px;
+        font-size: 80px;
+        transform: translateX(0);
+      }
+    }
+  }
+  .backg {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    &.partnership {
+      height: 70vh;
+
+      .head-title {
+        color: $main-light;
+      }
+    }
+    
+    &.sustainable {
+      height: 70vh;
+
+      .head-title {
+        color: $main-light;
+      }
+    }
+
+    &.team {
+      height: 70vh;
+    }
+
+    .head-title {
+      position: absolute;
+      left: 50%;
+      top: 45%;
+      transform: translateY(-50%);
+      transform: translateX(-50%);
+      text-shadow: $white 1px 1px;
+
+      font-family: 'Header', cursive;
+      color: white;
+      font-size: 40px;
+
+      @media (min-width: 768px) and (max-width: 1180px) {
+        left: 80px;
+        font-size: 50px;
+        transform: translateX(0);
+      }
+
+      @media (min-width: 1180px) {
+        left: 80px;
+        font-size: 80px;
+        transform: translateX(0);
+      }
+    }
+  }
+  .primary-button {
+    margin-top: 20px;
+    display: inline-block;
+    color: white;
+    border-radius: 25px;
+    padding: 5px 25px 7px;
+    background-color: $main-light;
+    cursor: pointer;
+    transition: all .2s ease;
+
+    &.thermo {
+      background-color: $main;
+      margin-bottom: 30px;
+    }
+
+    &.quiz {
+      background-color: $main;
+    }
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+
+  .primary-button.active {
+    background-color: black;
+    color: white;
+  }
+
+  .primary-button.true {
+    background-color: $secondary;
+    color: white;
+    margin-bottom: 10px;
+  }
+
+  .primary-button.false {
+    background-color: $team-leader;
+    color: white;
+    margin-bottom: 10px;
+  }
+
+  .home-sections img.smaller {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  .container {
+    max-width: 1440px;
+  }
+
+  .large-title {
+    font-family: 'Header', cursive;
+    font-size: 80px;
+    line-height: 85px;
+    color: $main-light;
+  }
+
+  .main-title {
+    font-family: 'Header', cursive;
+    font-size: 40px;
+    line-height: 55px;
+    color: $main-light;
+  }
+
+  .small-title {
+    font-family: 'Header', cursive;
+    color: $main-light;
+    font-size: 30px;
+    line-height: 45px;
+  }
+
+  .small-title2 {
+    font-family: 'Header', cursive;
+    color: $main-light;
+    font-size: 27px;
+    line-height: 30px;
+  }
+
+  figcaption {
+    font-weight: bold;
+  }
+
+  .link-ref {
+    color: $main-light;
+    border-bottom: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      color: $main;
+      border-bottom: 1px solid $main;
+    }
+  }
+
+  .link-download {
+    font-size: 25px;
+    cursor: pointer;
+    color: $secondary;
+    display: inline-block;
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: $secondary;
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+
+    &:hover:after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+  }
+
+  .main-content {
+    .btns {
+      a {
+        display: inline-block;
+      }
+    }
+
+    label.form-label {
+      padding: 25px 0 15px;
+      font-family: 'text', sans-serif;
+      font-size: 20px;
+    }
+  }
+ 
+  .gallery.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    @include media-breakpoint-up(md) {
+      grid-template-columns:  repeat(auto-fit, minmax(0, 1fr));
+    }
+  }
+
+  .gallery.grid2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+
+    @include media-breakpoint-up(md) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  .gallery.grid3 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+
+    @include media-breakpoint-up(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .gallery.grid4 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+
+    @include media-breakpoint-up(md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .bullets {
+    margin-top: -20px;
+
+    li {
+      list-style-type: disc;
+      margin-left: 2rem;
+      text-align: justify;
+      line-height: 30px;
+    }
+
+    &.acc li {
+      font-size: 16px;
+      line-height: 22px;
+      list-style-type: disc;
+      margin-left: 2rem;
+      text-align: justify;
+    }
+  }
+
+  .half-content {
+    img {
+      width: 80%;
+      margin: 0 auto;
+
+      @include media-breakpoint-up(sm) {
+        width: 50%;
+      }
+
+      @include media-breakpoint-up(xl) {
+        width: 75%;
+      }
+    }
+  }
+
+  .half-content2 {
+    img {
+      width: 50%;
+      margin: 0 auto;
+
+      @include media-breakpoint-up(sm) {
+        width: 50%;
+      }
+
+      @include media-breakpoint-up(xl) {
+        width: 75%;
+      }
+    }
+  }
+
+  .figure-caption {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: normal;
+  }
+
+  .sponsors-content {
+    max-width: 980px;
+
+    .col-xs-12 {
+      border-bottom: 1px solid #b1b1b1;
+      padding-bottom: 70px;
+      margin-bottom: 70px;
+    }
+
+    img {
+      padding-bottom: 20px;
+      width: 260px;
+
+      &.patrasuniversity {
+        width: 150px;
+      }
+    }
+
+    .sponsors-link {
+      font-weight: 700;
+      color: $main-light;
+    }
+  }

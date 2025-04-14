@@ -1,0 +1,30 @@
+image: node:16.15-alpine3.16
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - npm install
+    - rm -rf dist
+    - mkdir dist
+    - npm run generate
+ 
+
+pages:
+  stage: deploy
+  script:
+    - rm -rf public
+    - mkdir public && cp -rf dist/* public
+  artifacts:
+    paths:
+      - public
+
+cache:
+  paths:
+    - node_modules
+    - dist
+
+

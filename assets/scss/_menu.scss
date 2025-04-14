@@ -1,0 +1,335 @@
+// === Variables ====
+$font-size: 0.5vw;
+$split-position: 49%;
+$split-thickness: 0.2vw;
+$split-color: $dark;
+
+.menu {
+
+    // font-family: 'Abril Fatface', cursive;
+    font-family: 'text', sans-serif;
+    font-size: 1.5vw;
+
+
+    // letter-spacing: 0.06em;
+
+    // === Settings =====
+    %font-settings {
+        font-family: "Gilroy ExtraBold", system-ui, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        -webkit-font-smoothing: antialiased;
+        -webkit-font-kerning: normal;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    // === Codepen Setup =====
+    html,
+    body {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    body {
+        @extend %font-settings;
+        background: #1F1B4E;
+        position: fixed;
+        display: flex;
+        align-items: above;
+        justify-content: left;
+    }
+
+    // === Menu <ul> =====
+    .Menu-list {
+        font-family: 'toony' !important;
+        font-size: $font-size;
+        line-height: 1.2;
+        text-transform: uppercase;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        // overwritten by JS
+    }
+
+    // === Menu item =====
+    .Menu-list-item {
+        position: relative;
+        color: transparent;
+        cursor: pointer;
+        margin-right: 3vw;
+        font-family: 'toony' !important;
+        display: flex;
+        
+        // === Split Line =====
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: $split-position;
+            left: -10%;
+            right: -10%;
+            height: $split-thickness;
+            border-radius: $split-thickness;
+            margin-top: -($split-thickness / 2);
+            background: rgba(204, 233, 207, 1); //切分线的颜色
+            transform: scale(0);
+            transition: transform .8s cubic-bezier(.16, 1.08, .38, .98);
+            z-index: 1;
+        }
+    }
+
+
+
+    // === Top/bottom mask =====
+    .Mask {
+        font-family: 'toony' !important;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        overflow: hidden;
+        color: #3c4f30;
+        top: 0;
+        height: 49%;
+        transition: all .8s cubic-bezier(.16, 1.08, .38, .98);
+
+        span {
+            display: inline-block;
+        }
+
+        span {
+            transform: translateY($split-position);
+        }
+    }
+
+    // === Bottom mask specific =====
+    .Mask+.Mask {
+        top: $split-position - 0.1;
+        height: 100 - $split-position + 0.1;
+
+        span {
+            transform: translateY(-$split-position);
+        }
+    }
+
+    // === Where the fun stuff happens =====
+    .Menu-list-item:hover,
+    .Menu-list-item:active {
+        .Mask {
+            color: #c2efb5;
+            transform: skewX(12deg) translateX(5px);
+        }
+
+        .Mask+.Mask {
+            transform: skewX(12deg) translateX(-5px);
+        }
+
+        &::before {
+            transform: scale(1);
+        }
+    }
+
+    &.opened aside {
+        box-shadow: -13px 0px 28px -22px rgba(0, 0, 0, 0.65);
+    }
+
+    //submenu样式在此
+    &.items {
+        cursor: pointer;
+        @apply transform duration-300;
+        border-bottom: 1px solid $main-light;
+        padding: 9px 0;
+        position: relative;
+        font-family: 'Header', cursive !important;
+        
+        a {
+            font-family: 'Header', cursive;
+            font-size: 20px;
+            line-height: 20px;
+            color: $dark;
+            display: block;
+            padding-left: 20px;
+            transition: all .5s ease;
+
+            &:hover {
+                color: #289538e0;
+            }
+        }
+
+        .arrow-right {
+            position: absolute;
+            right: 30px;
+            top: 20px;
+            background: url('https://static.igem.wiki/teams/4772/wiki/website-material/arrow-of-the-menu.png') center center no-repeat;
+            background-size: 13px;
+            z-index: 100;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #efefef00;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            text-justify: center;
+            transition: all .25s ease-in-out;
+        }
+
+        &:hover .arrow-right {
+            transform: translateX(5px);
+        }
+    }
+
+    //调整边框的关键
+    aside {
+        background-color: #efefef !important;
+        height: 100vh;
+        width: 22rem;
+        position: fixed; //为每一个菜单选项设置submenu的关键
+        display: flex;
+
+        //调整每个submenu位置的关键
+        right: -22rem;
+        top: 76px;
+        bottom: 0;
+        z-index: 100;
+    }
+
+    .content {
+        margin-top: 56px;
+    }
+
+    .nav {
+        background-color: rgba(204, 233, 207, 0.6);
+        ;
+        left: 0;
+        right: 0;
+        top: 0;
+        display: flex;
+        white-space: nowrap;
+        position: fixed;
+        z-index: 1001;
+        @apply shadow;
+        font-family: 'toony', sans-serif;
+    }
+
+    .logo {
+        justify-content: center;
+        margin: 10px auto;
+        margin-left: 0px;
+        cursor: pointer;
+    }
+
+    .spacer {
+        flex-grow: 1;
+    }
+
+    .burger {
+        flex: none;
+        margin: 25px,auto;
+        display: none;
+    }
+
+
+    &.opened {
+        aside {
+            @apply transform -translate-x-full duration-700;
+        }
+
+        .content {
+            @apply scale-95 origin-top duration-1000;
+            filter: blur(4px);
+        }
+    }
+
+    &.closed {
+        aside {
+            @apply transform skew-y-6 duration-500;
+        }
+
+        .content {
+            @apply transform duration-1000;
+        }
+    }
+
+    .hamburger-inner,
+    .hamburger-inner::after,
+    .hamburger-inner::before {
+        background-color: $main-light;
+        width: 22px;
+        height: 2px;
+        border-radius: 0px;
+    }
+
+    .hamburger-inner::after {
+        bottom: -6px;
+    }
+
+    .hamburger-inner::before {
+        top: -6px;
+    }
+
+    @media screen and (max-width:482px) {
+        .Menu-list-item {
+            display: none;
+        }
+
+        .burger {
+            display: flex;
+        }
+
+        .hamburger-inner {
+            display: felx;
+        }
+    }
+}
+
+.boldstyle { font-weight: bold; }
+.submenu {
+    background-color: #e2f9e1 !important; 
+    border-style:double;
+    border-color:#3c4f30;
+    
+    color: rgba(123, 199, 131, 0.8);
+    height: 80vh;
+    width: 22rem;
+    position: fixed;
+    display: flex;
+    right: -24rem;
+    top: 55px;
+    bottom: 20px;
+    z-index: 1000;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-radius: 15px;
+    .items a {
+        font-family: 'Header', sans-serif;
+        font-size: 25px;
+    }
+
+    .arrow-left {
+        position: absolute;
+        left: 10px;
+        top: 30px;
+        background: url('https://static.igem.wiki/teams/4772/wiki/website-material/arrow-of-the-menu.png') center center no-repeat;
+        background-size: 13px;
+        transform: rotate(180deg);
+        z-index: 100;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #efefef00;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+
+    &.opened {
+        @apply transform -translate-x-full duration-500;
+    }
+
+    &.closed {
+        @apply transform skew-y-6 duration-500;
+    }
+
+}
+
+//我觉得这玩意可以每条一个，调一下大小和响应

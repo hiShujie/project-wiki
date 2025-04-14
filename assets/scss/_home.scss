@@ -1,0 +1,250 @@
+video {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.home-sections {
+  .primary-button {
+    margin-bottom: 40px;
+  }
+  img {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+}
+
+.stats-counter {
+  background-color: $black;
+  padding: 60px 0;
+
+  .count {
+    text-align: center;
+    padding: 20px 0;
+
+    .count-icon {
+      text-align: center;
+      padding-bottom: 20px;
+      display: inline-block;
+    }
+
+    .number {
+      font-family: 'Header', cursive;
+      font-style: normal;
+      font-weight: 350;
+      font-size: 60px;
+      line-height: 65px;
+      color: $main-light;
+    }
+    span {
+      color: $white;
+      display: inline-block;
+      font-size: 20px;
+      line-height: 25px;
+    }
+  }
+}
+
+.grid-transparent-cards {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 980px;
+  .container {
+    margin-top: 40px;
+  }
+  .smaller {
+    max-width: 90%;
+    padding-top: 30px;
+    margin: 0 auto;
+    @include media-breakpoint-up(sm) {
+      max-width: 50%;
+    }
+  }
+
+  .card-component {
+    border: 1px solid $main-light;
+    border-radius: 20px;
+    padding: 45px 20px 20px 20px;
+    margin-bottom: 30px;
+    min-height: 560px;
+
+    .comp {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 20px;
+
+      img {
+        width: 75px;
+        margin-bottom: 20px;
+      }
+    }
+
+    .excerpt {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 24px;
+      padding: 5px 0 10px;
+    }
+
+    > p {
+      font-size: 16px;
+      line-height: 26px;
+      text-align: center !important;
+    }
+  }
+}
+
+.bg-section {
+  background: url("https://static.igem.wiki/teams/4772/wiki/website-material/homepage/backgroundvideo.gif") center center no-repeat;
+  background-size: cover;
+  height: 64vh;
+  padding: 80px 0;
+  // p {
+  //   color: $white;
+  // }
+}
+
+.grid-cards {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 980px;
+  .container {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  .card-component {
+    border: 1px solid $main-light;
+    border-radius: 20px;
+    background-color: $main-light;
+    padding: 45px 40px 20px 40px;
+    color: $white;
+    margin-bottom: 30px;
+  }
+}
+
+// GALLERY TABBED STYLE
+
+.tabbed-gallery {
+  position: relative;
+  margin: 550px auto 0;
+
+  .thumbnails {
+    list-style: none;
+    margin-left: -1%;
+    font-size: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    @include media-breakpoint-up(lg) {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    li {
+      display: inline-block;
+      margin-left: 1%;
+      vertical-align: middle;
+    }
+    label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      cursor: pointer;
+    }
+    .item-hugger {
+      position: relative;
+      transition: all 150ms ease;
+      transform-origin: bottom;
+      z-index: 10;
+      border: 1px solid transparent;
+      border-radius: 15px;
+      &:hover {
+        transform: scale3d(0.97,0.97,1);
+        border: 1px solid $white;
+      }
+    }
+    .thumb-image {
+      height: 140px;
+      overflow: hidden;
+      border-radius: 15px;
+    }
+    .gal-content {
+      position: absolute;
+      z-index: 0;
+      top: -640px;
+      left: 0;
+      width: 100%;
+      height: 800px;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 150ms ease;
+      text-align: left;
+      padding: 50px 20px;
+      white-space: normal;
+      color: $white;
+      @include media-breakpoint-up(sm) {
+        padding: 60px 50px;
+      }
+
+      .title {
+        font-family: 'Header', cursive;
+        font-size: 60px;
+        line-height: 60px;
+        margin-bottom: 20px;
+        @include media-breakpoint-up(sm) {
+          font-size: 80px;
+          line-height: 80px;
+        }
+      }
+
+      .txt {
+        font-size: 20px;
+        line-height: 26px;
+        width: 100%;
+        text-align: left;
+        @include media-breakpoint-up(sm) {
+          font-size: 24px;
+          line-height: 30px;
+        }
+        @include media-breakpoint-up(md) {
+          width: 70%;
+        }
+
+      }
+      .item-wrapper {
+        position: absolute;
+        z-index: 10;
+        .pills {
+          display: inline-block;
+          padding: 1px 30px 1px 20px;
+          color: $white;
+          background: url('https://static.igem.wiki/teams/4118/wiki/website-assets/arrow-white-right.png') 95% center no-repeat;
+          background-color: $main-light;
+          background-size: 7px;
+          border-radius: 5px;
+          margin-top: 15px;
+          transition: all 150ms ease;
+          font-size: 14px;
+
+          &:hover {
+            background-color: $black;
+          }
+        }
+      }
+    }
+
+    input[name="select"] {
+      display: none;
+      transition: all 150ms ease;
+      &:checked + .item-hugger {
+        border: 1px solid $white;
+        transform: scale3d(0.95,0.95,1);
+        transform-origin: bottom;
+      }
+      &:checked ~ .gal-content { visibility: visible; opacity: 1; }
+    }
+  }
+}

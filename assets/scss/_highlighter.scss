@@ -1,0 +1,91 @@
+section {
+    .link-primary {
+        cursor: pointer;
+        color: $main-light;
+        display: inline-block;
+        position: relative;
+        &:after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          transform: scaleX(0);
+          height: 2px;
+          bottom: 0;
+          left: 0;
+          background-color: $main-light;
+          transform-origin: bottom right;
+          transition: transform 0.25s ease-out;
+        }
+        &:hover:after {
+          transform: scaleX(1);
+          transform-origin: bottom left;
+        }
+    }
+}
+.highlighter {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    text-align: center;
+    position: fixed;
+    width: 90%;
+    height: 220px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: $dark;
+    z-index: 10000;
+
+    bottom: -220px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include media-breakpoint-up(sm) {
+        padding: 30px;
+        bottom: -220px;
+        width: 550px;
+    }
+
+    .small-title {
+        color: $white;
+    }
+
+    p {
+        text-align: center;
+        font-size: 16px !important;
+        line-height: 22px;
+        padding-bottom: 0;
+    }
+
+    .close {
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 10px;
+        text-indent: -9000px;
+
+        &:after {
+            content: '';
+            height: 20px;
+            border-left: 2px solid $white;
+            position: absolute;
+            transform: rotate(45deg);
+            left: 0;
+        }
+        &:before {
+            content: '';
+            height: 20px;
+            border-left: 2px solid $white;
+            position: absolute;
+            transform: rotate(-45deg);
+            left: 0;
+        }
+    }
+
+    transition: all .3s cubic-bezier(.07,.68,.12,.97);
+}
+
+.highlighter.active {
+    color: $white;
+    bottom: 10px;
+}

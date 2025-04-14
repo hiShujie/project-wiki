@@ -1,0 +1,132 @@
+/* 1. Enable smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 2. Make nav sticky */
+main nav {
+  position: sticky;
+  top: 110px;
+}
+
+.main-content {
+  padding-top: 30px;
+  section {
+    padding-top: 0 !important;
+  }
+  .main-title {
+    margin-bottom: 10px;
+  }
+  .small-title {
+    color: $dark;
+    line-height: 35px;
+    margin-bottom: 0px;
+  }
+  span {
+    font-weight: bold !important;
+  }
+  li {
+    font-size: 20px;
+  }
+  img {
+    padding: 20px 0;
+  }
+}
+
+/* Sidebar Navigation */
+.section-nav {
+  padding-left: 0;
+  // border-right: 1px solid #efefef;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: none;
+
+  @include media-breakpoint-up(lg) {
+    display: block;
+  }
+
+  ol > li > a,
+  ul > li > a  {
+    font-family: 'Header', cursive;
+    font-size: 23px;
+    line-height: 30px;
+    display: block;
+    padding: 7px 0;
+    color: $main-light;
+    transition: all 500ms ease-in-out; /* 💡 This small transition makes setting of the active state smooth */
+    &:hover {
+      color: $dark;
+    }
+    &:focus {
+      color: $dark;
+    }
+    &:active {
+      color: $main-light;
+    }
+  }
+  ul {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  //contents
+  ul > li > a {
+    font-family: 'Header', sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+    padding: 3px 0;
+  }
+
+  .sub {
+    margin-left: 15px;
+    padding-bottom: 8px;
+  }
+}
+
+ol {
+  width: 95%;
+  padding-right: 50px !important;
+}
+
+.warning {
+  padding: 1em;
+  border: 1px solid #ccc;
+  display: block;
+  width: fit-content;
+  margin: 1rem auto;
+}
+
+.warning p {
+  margin: 0;
+  padding: 0;
+}
+
+.scrolled {
+  color: $dark !important;
+}
+
+progress {
+	-webkit-appearance: none;
+	appearance: none;
+	position: sticky;
+	top: 0;
+	left: 0;
+  transform: translateX(90%) rotate(90deg);
+  transform-origin: top left;
+  width: 100vh;
+	height: 8px;
+}
+
+progress::-webkit-progress-bar {
+	background-color: #dcdcdc;
+}
+
+progress[value="100"]::-webkit-progress-bar {
+	background-color: $main-light;
+}
+
+progress::-webkit-progress-value {
+	background-color: $main-light;
+	// border-bottom-right-radius: 5px;
+	// border-top-right-radius: 5px;
+}
